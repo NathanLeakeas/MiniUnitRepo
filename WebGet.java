@@ -24,7 +24,7 @@ public class WebGet
             Scanner fromHost = new Scanner(s.getInputStream());
             PrintWriter toHost = new PrintWriter(s.getOutputStream());
     
-            toHost.print("GET "+ resource + " HTTP/1.1\n" + "Host: " +hostname+"\n\n");
+            toHost.print("GET "+ resource + " HTTP/1.1\r\n" + "Host: " +hostname+"\r\n\r\n");
             toHost.flush();
     
             System.out.println("Getting "+resource+" from "+hostname);
