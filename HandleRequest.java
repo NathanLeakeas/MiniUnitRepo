@@ -45,7 +45,7 @@ public class HandleRequest implements Runnable
                 }
                 else
                 {
-                    String response = "HTTP/1.1 200 OK\nContent-Type: text/html\n\n";
+                    String response = "HTTP/1.1 200 OK\nContent-Type: text/html\nContent-Length: "+contents.length()+"\n\n";
                     response +=contents;
                     out.print(response+"\n");
                     out.flush();
@@ -66,9 +66,9 @@ public class HandleRequest implements Runnable
             String contents = "";
             while(fileReader.hasNext())
             {
-                contents+=fileReader.nextLine();
+                contents+=fileReader.nextLine()+"\r\n";
             }
-            fileReader.close();
+            fileReader.close(); 
             return contents;
         }
         catch(FileNotFoundException e)
