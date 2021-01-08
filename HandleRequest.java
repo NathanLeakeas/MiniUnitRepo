@@ -33,7 +33,7 @@ public class HandleRequest implements Runnable
             if(!in.hasNext()){return;}
             String request = in.nextLine();
             String[] requestArray = request.split(" ");
-            if(requestArray[0].compareTo("GET")==0)//request.substring(0,request.indexOf(" ")).compareTo("GET")==0)
+            if(requestArray[0].compareTo("GET")==0)
             {
                 String contents = fetchResource(requestArray[1].substring(1));
                 if(contents==null)
