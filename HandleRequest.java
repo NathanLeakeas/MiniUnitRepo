@@ -38,9 +38,10 @@ public class HandleRequest implements Runnable
                 String contents = fetchResource(requestArray[1].substring(1));
                 if(contents==null)
                 {
+                    String response = "<html><body><h1>404 File Not Found</h1></body></html>";
                     out.println("HTTP/1.1 404 Not Found");
-                    out.println("Content-Type: text/html\n");
-                    out.println("<html><body><h1>404 File Not Found</h1></body></html>");
+                    out.println("Content-Type: text/html\nContent-Length: "+response.length()+"\n\n");
+                    out.println(response);
                     out.flush();
                 }
                 else
